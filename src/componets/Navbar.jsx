@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="logo-section">
-        <img src={logo} alt="AR Dental Clinic" className="logo" />
+        <img src={logo} alt="AR DENTAL CARE CENTER" className="logo" />
         <h2>AR Dental Clinic</h2>
       </div>
 

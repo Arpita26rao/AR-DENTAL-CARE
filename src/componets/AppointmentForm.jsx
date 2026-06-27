@@ -1,4 +1,3 @@
-
 function AppointmentForm() {
   return (
     <form className="appointment-form">
@@ -9,15 +8,24 @@ function AppointmentForm() {
       <select>
         <option>Select Service</option>
         <option>Teeth Cleaning</option>
-        <option>Root Canal</option>
+        <option>Root Canal Treatment</option>
         <option>Dental Implant</option>
+        <option>Braces & Aligners</option>
+        <option>Teeth Whitening</option>
       </select>
+      <select>
+  <option>Select Doctor</option>
+  <option>Dr. Rajesh Sharma - Dental Surgeon</option>
+  <option>Dr. Neha Gupta - Orthodontist</option>
+  <option>Dr. Amit Verma - Implant Specialist</option>
+  <option>Dr. Priya Mishra - Pediatric Dentist</option>
+</select>
 
       <input type="date" />
 
-      <button type="submit">
-        Book Appointment
-      </button>
+      <textarea placeholder="Additional Message"></textarea>
+
+      <button type="submit">Book Appointment</button>
     </form>
   );
 }

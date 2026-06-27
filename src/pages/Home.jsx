@@ -1,22 +1,20 @@
+
 import Hero from "../componets/Hero";
+import WhychooseUs from "../componets/WhychooseUs";
 import ServicesSection from "../componets/ServicesSection";
 import DoctorCard from "../componets/Doctorcard";
+import Testimonials from "../componets/Testimonials";
 
 function Home() {
   return (
     <>
       <Hero />
+      <WhychooseUs />
       <ServicesSection />
 
-      <section className="home-doctors">
-        <h2>Our Doctors</h2>
+      {/* Doctors Section */}
 
-        <div className="doctor-container">
-          <DoctorCard name="Dr. Sharma" speciality="Dental Surgeon" />
-          <DoctorCard name="Dr. Gupta" speciality="Orthodontist" />
-          <DoctorCard name="Dr. Verma" speciality="Implant Specialist" />
-        </div>
-      </section>
+      <Testimonials />
     </>
   );
 }

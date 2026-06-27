@@ -6,10 +6,12 @@ import Services from "./pages/Services";
 import Doctor from "./pages/Doctor";
 import Contact from "./pages/contact";
 import Appointment from "./pages/Appointment";
+import WhychooseUs from "./componets/WhychooseUs";
+import Footer from "./componets/Footer";
+
 function App() {
   return (
     <BrowserRouter>
-
       <Navbar />
 
       <Routes>
@@ -19,10 +21,10 @@ function App() {
         <Route path="/doctor" element={<Doctor />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/appointment" element={<Appointment />} />
-<Route path="/appointment" element={<Appointment />} />
-      
+        <Route path="/why-choose-us" element={<WhychooseUs />} />
       </Routes>
 
+      <Footer />
     </BrowserRouter>
   );
 }

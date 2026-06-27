@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 
 function Hero() {
@@ -6,12 +5,34 @@ function Hero() {
 
   return (
     <section className="hero">
-      <h1>AR Dental Clinic</h1>
-      <p>Your Smile, Our Priority</p>
+      <div className="hero-left">
+        <h1>AR Dental Care Centre</h1>
 
-      <button onClick={() => navigate("/appointment")}>
-        Book Appointment
-      </button>
+        <p>
+          Modern dental care with experienced specialists,
+          advanced technology, and patient-focused treatment.
+        </p>
+
+        <div className="hero-buttons">
+          <button onClick={() => navigate("/appointment")}>
+            Book Appointment
+          </button>
+
+          <button
+            className="secondary-btn"
+            onClick={() => navigate("/services")}
+          >
+            Our Services
+          </button>
+        </div>
+      </div>
+
+      <div className="hero-right">
+        <img
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800"
+          alt="Dental Clinic"
+        />
+      </div>
     </section>
   );
 }
