@@ -8,7 +8,7 @@ import Contact from "./pages/contact";
 import Appointment from "./pages/Appointment";
 import WhychooseUs from "./componets/WhychooseUs";
 import Footer from "./componets/Footer";
-
+import AdminDashboard from "./pages/AdminDashboard";
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +22,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/why-choose-us" element={<WhychooseUs />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
 
       <Footer />
