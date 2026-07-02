@@ -590,3 +590,10 @@ body {
 .delete-btn:hover {
   background: #dc2626;
 }
+.status-select {
+  padding: 7px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}

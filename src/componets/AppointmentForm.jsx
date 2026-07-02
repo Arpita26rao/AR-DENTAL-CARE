@@ -36,8 +36,12 @@ function AppointmentForm() {
         message: "",
       });
     } catch (error) {
-      alert("Failed to book appointment.");
       console.log(error);
+      alert(
+        error.response?.data?.message ||
+          error.message ||
+          "Failed to book appointment."
+      );
     }
   };
 
