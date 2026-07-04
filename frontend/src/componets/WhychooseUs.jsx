@@ -1,4 +1,4 @@
-function whyChooseUs() {
+function WhyChooseUs() {
   return (
     <section className="why-section">
       <h2>Why Choose Us?</h2>
@@ -23,4 +23,4 @@ function whyChooseUs() {
   );
 }
 
-export default WhyChooseUs;
+export default whyChooseUs;

@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-
 import Navbar from "./componets/Navbar";
 import Footer from "./componets/Footer";
-import whychooseUs from "./componets/whychooseus";
+import whychooseUs from "./componets/WhychooseUs";
 import ProtectedRoute from "./pages/ProtectedRoute";
-
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
