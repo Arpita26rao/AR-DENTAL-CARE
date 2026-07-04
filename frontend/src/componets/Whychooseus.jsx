@@ -1,4 +1,4 @@
-function WhyChooseUs() {
+function whyChooseUs() {
   return (
     <section className="why-section">
       <h2>Why Choose Us?</h2>

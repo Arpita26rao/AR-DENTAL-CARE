@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./componets/Navbar";
 import Footer from "./componets/Footer";
+import whychooseUs from "./componets/whychooseus";
 import ProtectedRoute from "./pages/ProtectedRoute";
-import WhychooseUs from "./componets/Whychooseus";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -31,7 +32,7 @@ function Layout() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/admin-login" element={<AdminLogin />} />
-        <Route path="/WhychooseUs"element={<WhychooseUs/>}/>
+        <Route path="/whychooseus"element={<whychooseUs/>}/>
         <Route
           path="/admin"
           element={
