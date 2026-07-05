@@ -13,16 +13,12 @@ import AdminLogin from "./pages/AdminLogin";
 
 function Layout() {
   const location = useLocation();
-
-  
   const hideLayout =
     location.pathname === "/admin" ||
     location.pathname === "/admin-login";
-
   return (
     <>
       {!hideLayout && <Navbar />}
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
