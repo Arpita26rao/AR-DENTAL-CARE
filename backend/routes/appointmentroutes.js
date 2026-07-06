@@ -5,7 +5,7 @@ const Appointment = require("../models/appointment");
 // Create appointment
 router.post("/", async (req, res) => {
   try {
-    const appointment = appointment(req.body);
+    const appointment = new Appointment(req.body);
     await appointment.save();
 
     res.status(201).json({
@@ -92,31 +92,4 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
-  try {
-    const appointment = await Appointment.findByIdAndUpdate(
-      req.params.id,
-      { status: req.body.status },
-      { new: true }
-    );
-
-    if (!appointment) {
-      return res.status(404).json({
-        success: false,
-        message: "Appointment not found",
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      message: "Status updated successfully",
-      data: appointment,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-});
 module.exports = router;
