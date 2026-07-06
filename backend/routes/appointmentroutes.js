@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const appointment = require("../models/appointment");
+const Appointment = require("../models/appointment");
 
 // Create appointment
 router.post("/", async (req, res) => {
   try {
-    const appointment = new appointment(req.body);
+    const appointment = appointment(req.body);
     await appointment.save();
 
     res.status(201).json({
