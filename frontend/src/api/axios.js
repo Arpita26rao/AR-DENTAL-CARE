@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL
-  
+  baseURL: "https://ar-dental-care-backend.onrender.com/api",
 });
 
 export default API;
