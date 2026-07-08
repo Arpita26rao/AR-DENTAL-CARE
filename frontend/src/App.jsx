@@ -9,6 +9,7 @@ import Contact from "./pages/contact";
 import Appointment from "./pages/Appointment";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
+import Doctor from "./pages/Doctor";
 
 function Layout() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function Layout() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/doctor" element={<Doctor />} />
        
         <Route
           path="/admin"
