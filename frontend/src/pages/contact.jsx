@@ -21,6 +21,7 @@ function Contact() {
 
     try {
       await API.post("/contact", formData);
+
       alert("Message sent successfully!");
 
       setFormData({
@@ -35,41 +36,98 @@ function Contact() {
   };
 
   return (
-    <div className="contact-page">
-      <h1>Contact Us</h1>
-      <p>Get in touch with AR Memorial Dental Care Centre</p>
+    <section className="contact-page">
+
+      <div className="section-title">
+        
+        <h2>Contact Us</h2>
+        <p>
+          We'd love to hear from you. Contact our clinic for appointments,
+          consultations or any dental queries.
+        </p>
+      </div>
 
       <div className="contact-wrapper">
+
+        {/* Left Side */}
         <div className="contact-card">
+
           <h3>Clinic Information</h3>
-          <p><strong>Address:</strong> Kota Rajasthan, India</p>
-          <p><strong>Phone:</strong> +91 9876543210</p>
-          <p><strong>Email:</strong> armemorialdental@gmail.com</p>
-          <p><strong>Timing:</strong> Mon - Sat, 10:00 AM - 7:00 PM</p>
+
+          <p><strong>📍 Address:</strong> Kota, Rajasthan, India</p>
+
+          <p><strong>📞 Phone:</strong> +91 9876543210</p>
+
+          <p><strong>✉ Email:</strong> armemorialdental@gmail.com</p>
+
+          <p><strong>🕒 Timing:</strong> Mon - Sat | 10:00 AM - 7:00 PM</p>
 
           <div className="map-section">
-            <h2>Our Location</h2>
+
+            <h3>Our Location</h3>
+
             <iframe
               title="clinic-location"
               src="https://www.google.com/maps?q=Rajasthan,India&output=embed"
               width="100%"
-              height="350"
-              style={{ border: 0 }}
-              allowFullScreen=""
+              height="280"
+              style={{ border: 0, borderRadius: "15px" }}
               loading="lazy"
+              allowFullScreen
             ></iframe>
+
           </div>
+
         </div>
 
+        {/* Right Side */}
+
         <form className="contact-form" onSubmit={handleSubmit}>
-          <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
-          <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
-          <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
-          <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required></textarea>
-          <button type="submit">Send Message</button>
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+
+          <textarea
+            name="message"
+            placeholder="Write your message..."
+            value={formData.message}
+            onChange={handleChange}
+            required
+          ></textarea>
+
+          <button type="submit">
+            Send Message
+          </button>
+
         </form>
+
       </div>
-    </div>
+
+    </section>
   );
 }
 
