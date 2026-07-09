@@ -50,12 +50,8 @@ function Services() {
   return (
     <section className="services">
       <div className="section-title">
-        <span>Our Services</span>
         <h2>Complete Dental Care Under One Roof</h2>
-        <p>
-          We provide modern dental treatments with advanced technology and
-          experienced specialists.
-        </p>
+      
       </div>
 
       <div className="services-grid">
