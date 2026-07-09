@@ -1,27 +1,78 @@
+import {
+  FaTooth,
+  FaTeeth,
+  FaSmile,
+  FaNotesMedical,
+  FaUserMd,
+  FaClinicMedical,
+} from "react-icons/fa";
 
-function ServicesSection() {
+function Services() {
+  const services = [
+    {
+      icon: <FaTooth />,
+      title: "Teeth Cleaning",
+      description:
+        "Professional cleaning to remove plaque and maintain healthy teeth.",
+    },
+    {
+      icon: <FaNotesMedical />,
+      title: "Root Canal",
+      description:
+        "Advanced painless root canal treatment to save damaged teeth.",
+    },
+    {
+      icon: <FaClinicMedical />,
+      title: "Dental Implants",
+      description:
+        "Permanent tooth replacement with natural appearance and strength.",
+    },
+    {
+      icon: <FaTeeth />,
+      title: "Braces & Aligners",
+      description:
+        "Modern orthodontic solutions for perfectly aligned teeth.",
+    },
+    {
+      icon: <FaSmile />,
+      title: "Teeth Whitening",
+      description:
+        "Safe whitening treatment for a brighter and confident smile.",
+    },
+    {
+      icon: <FaUserMd />,
+      title: "General Dentistry",
+      description:
+        "Complete dental checkups and preventive oral healthcare.",
+    },
+  ];
+
   return (
     <section className="services">
-      <h2>Our Services</h2>
+      <div className="section-title">
+        <span>Our Services</span>
+        <h2>Complete Dental Care Under One Roof</h2>
+        <p>
+          We provide modern dental treatments with advanced technology and
+          experienced specialists.
+        </p>
+      </div>
 
-      <div className="service-container">
-        <div className="service-card">
-          <h3>Teeth Cleaning</h3>
-          <p>Professional dental cleaning service.</p>
-        </div>
+      <div className="services-grid">
+        {services.map((service, index) => (
+          <div className="service-card" key={index}>
+            <div className="service-icon">{service.icon}</div>
 
-        <div className="service-card">
-          <h3>Root Canal</h3>
-          <p>Painless root canal treatment.</p>
-        </div>
+            <h3>{service.title}</h3>
 
-        <div className="service-card">
-          <h3>Dental Implant</h3>
-          <p>Permanent tooth replacement solution.</p>
-        </div>
+            <p>{service.description}</p>
+
+          
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-export default ServicesSection;
+export default Services;

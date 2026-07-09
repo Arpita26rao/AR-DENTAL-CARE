@@ -10,25 +10,23 @@ function DoctorCard({
 
   return (
     <div className="doctor-card">
+
       <div className="doctor-avatar">
         👨‍⚕️
       </div>
 
-      <span className="doctor-badge">
-        Available
+      <span className="availability">
+        🟢 Available Today
       </span>
 
       <h3>{name}</h3>
 
-      <p className="qualification">{qualification}</p>
+      <p className="speciality">{speciality}</p>
 
-      <p className="speciality">
-        {speciality}
-      </p>
-
-      <p className="experience">
-        ⭐ {experience}
-      </p>
+      <div className="doctor-details">
+        <p>🎓 {qualification}</p>
+        <p>💼 {experience}</p>
+      </div>
 
       <ul className="doctor-services">
         <li>✔ Root Canal</li>
@@ -42,6 +40,7 @@ function DoctorCard({
       >
         Book Appointment →
       </button>
+
     </div>
   );
 }

@@ -1,36 +1,60 @@
+import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 function Footer() {
   return (
     <footer className="footer">
+
       <div className="footer-container">
+
+        {/* Clinic */}
         <div className="footer-box">
-          <h3>AR Memorial Dental Care Centre</h3>
+          <h2>🦷 AR Memorial Dental Care Centre</h2>
           <p>
-            Modern dental care with experienced specialists and
-            patient-focused treatment.
+            Providing advanced, affordable and patient-focused dental care
+            with modern technology and experienced specialists.
           </p>
         </div>
+        <div className="footer-social">
 
+  <a href="#">
+    <FaFacebook />
+  </a>
+
+  <a href="#">
+    <FaInstagram />
+  </a>
+
+  
+</div>
+
+        {/* Quick Links */}
         <div className="footer-box">
-          <h4>Quick Links</h4>
-          <p>Home</p>
-          <p>About</p>
-          <p>Services</p>
-          <p>Doctors</p>
-          <p>Appointment</p>
+          <h3>Quick Links</h3>
+
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/doctor">Doctors</Link>
+          <Link to="/appointment">Appointment</Link>
+          <Link to="/contact">Contact</Link>
         </div>
 
+        {/* Contact */}
         <div className="footer-box">
-          <h4>Contact Info</h4>
-          <p>📍 Rajasthan, India</p>
-          <p>📞 +91 9876543210</p>
-          <p>✉️ armemorialdental@gmail.com</p>
-          <p>⏰ Mon - Sat: 10:00 AM - 7:00 PM</p>
+          <h3>Contact</h3>
+
+          <p>📍 Kota, Rajasthan</p>
+          <p>📞 +91 98765 43210</p>
+          <p>✉ info@ardental.com</p>
+          <p>🕒 Mon - Sat | 9:00 AM - 8:00 PM</p>
         </div>
+
       </div>
 
       <div className="footer-bottom">
-        <p>© 2026 AR Memorial Dental Care Centre. All Rights Reserved.</p>
+        © 2026 AR Memorial Dental Care Centre. All Rights Reserved.
       </div>
+
     </footer>
   );
 }

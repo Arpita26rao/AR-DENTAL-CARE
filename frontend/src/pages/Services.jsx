@@ -1,45 +1,51 @@
-
 function Services() {
   const services = [
     {
       title: "Teeth Cleaning",
-      desc: "Professional cleaning to remove plaque and improve oral hygiene.",
+      text: "Professional cleaning to remove plaque and improve oral hygiene.",
     },
     {
       title: "Root Canal",
-      desc: "Painless treatment to save infected or damaged teeth.",
+      text: "Painless treatment to save infected or damaged teeth.",
     },
     {
       title: "Dental Implant",
-      desc: "Permanent tooth replacement solution with natural look.",
+      text: "Permanent tooth replacement solution with natural look.",
     },
     {
       title: "Braces & Aligners",
-      desc: "Teeth alignment treatment for a confident smile.",
+      text: "Teeth alignment treatment for a confident smile.",
     },
     {
       title: "Teeth Whitening",
-      desc: "Brighten your smile with safe whitening treatment.",
+      text: "Brighten your smile with safe whitening treatment.",
     },
     {
       title: "Tooth Extraction",
-      desc: "Safe removal of damaged or painful teeth.",
+      text: "Safe removal of damaged or painful teeth.",
     },
   ];
 
   return (
-    <div className="services-page">
+    <section className="services-page">
       <h1>Our Dental Services</h1>
+      <div className="section-title">
+  <h1>Complete Dental Care Under One Roof</h1>
+  <p>
+    We provide modern dental treatments with advanced technology and experienced specialists.
+  </p>
+</div>
 
       <div className="services-grid">
-        {services.map((service, index) => (
+        {services.map((item, index) => (
           <div className="service-card" key={index}>
-            <h3>{service.title}</h3>
-            <p>{service.desc}</p>
+            <div className="service-icon">🦷</div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
