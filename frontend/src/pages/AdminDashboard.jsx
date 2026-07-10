@@ -22,7 +22,7 @@ function AdminDashboard() {
   const fetchContacts = async () => {
     try {
       const res = await API.get("/contact");
-      setContacts(res.data.data);
+      setAppointments(Array.isArray(res.data.data) ? res.data.data : []);
     } catch (error) {
       console.log(error);
     }

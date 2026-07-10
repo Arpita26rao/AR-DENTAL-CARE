@@ -27,7 +27,7 @@ function AdminLogin() {
 
       alert("Login Successful!");
 
-      navigate("/admin");
+      navigate("/admin-dashboard");
     } catch (error) {
       alert(
         error.response?.data?.message ||
@@ -38,11 +38,9 @@ function AdminLogin() {
 
   return (
     <div className="admin-login">
-  
-      
-  <h2>Admin Login</h2>
-
       <form onSubmit={handleSubmit} className="login-form">
+        <h2>Admin Login</h2>
+
         <input
           type="email"
           name="email"
