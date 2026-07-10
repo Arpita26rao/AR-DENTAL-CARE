@@ -4,6 +4,8 @@ import API from "../api/axios";
 function AdminDashboard() {
   const [appointments, setAppointments] = useState([]);
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("All");
 
   useEffect(() => {
     fetchAppointments();
@@ -13,18 +15,26 @@ function AdminDashboard() {
   const fetchAppointments = async () => {
     try {
       const res = await API.get("/appointments");
-      setAppointments(res.data.data);
+
+      setAppointments(
+        Array.isArray(res.data.data) ? res.data.data : []
+      );
     } catch (error) {
       console.log(error);
+      setAppointments([]);
     }
   };
 
   const fetchContacts = async () => {
     try {
       const res = await API.get("/contact");
-      setAppointments(Array.isArray(res.data.data) ? res.data.data : []);
+
+      setContacts(
+        Array.isArray(res.data.data) ? res.data.data : []
+      );
     } catch (error) {
       console.log(error);
+      setContacts([]);
     }
   };
 
@@ -71,6 +81,21 @@ function AdminDashboard() {
     (item) => item.status === "Cancelled"
   ).length;
 
+  const filteredAppointments = appointments.filter((item) => {
+    const value = searchTerm.toLowerCase();
+
+    const matchesSearch =
+      item.fullName?.toLowerCase().includes(value) ||
+      item.doctor?.toLowerCase().includes(value) ||
+      item.service?.toLowerCase().includes(value);
+
+    const matchesStatus =
+      statusFilter === "All" ||
+      (item.status || "Pending") === statusFilter;
+
+    return matchesSearch && matchesStatus;
+  });
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.href = "/admin-login";
@@ -79,7 +104,18 @@ function AdminDashboard() {
   return (
     <div className="admin-dashboard">
       <div className="admin-header">
-        <h1>Admin Dashboard</h1>
+        <div>
+          <span className="admin-subtitle">
+            AR Memorial Dental Care Centre
+          </span>
+
+          <h1>Admin Dashboard</h1>
+
+          <p>
+            Manage appointments, patient enquiries and clinic operations
+            from one place.
+          </p>
+        </div>
 
         <button className="logout-btn" onClick={handleLogout}>
           Logout
@@ -118,7 +154,31 @@ function AdminDashboard() {
         </div>
       </div>
 
-      <h2>Appointments</h2>
+      <div className="admin-table-header">
+        <h2 className="admin-section-title">Appointments</h2>
+
+        <div className="admin-actions">
+          <select
+            className="filter-select"
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+          >
+            <option value="All">All Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+
+          <input
+            className="admin-search"
+            type="text"
+            placeholder="Search patient, doctor or service"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </div>
 
       <table className="admin-table">
         <thead>
@@ -133,20 +193,25 @@ function AdminDashboard() {
         </thead>
 
         <tbody>
-          {appointments.map((item) => (
+          {filteredAppointments.map((item) => (
             <tr key={item._id}>
               <td>{item.fullName}</td>
               <td>{item.doctor}</td>
               <td>{item.service}</td>
+
               <td>
-                {new Date(item.appointmentDate).toLocaleDateString()}
+                {item.appointmentDate
+                  ? new Date(item.appointmentDate).toLocaleDateString("en-IN")
+                  : "No Date"}
               </td>
 
               <td>
                 <select
                   className="status-select"
                   value={item.status || "Pending"}
-                  onChange={(e) => updateStatus(item._id, e.target.value)}
+                  onChange={(e) =>
+                    updateStatus(item._id, e.target.value)
+                  }
                 >
                   <option value="Pending">Pending</option>
                   <option value="Confirmed">Confirmed</option>
@@ -165,10 +230,16 @@ function AdminDashboard() {
               </td>
             </tr>
           ))}
+
+          {filteredAppointments.length === 0 && (
+            <tr>
+              <td colSpan="6">No appointments found.</td>
+            </tr>
+          )}
         </tbody>
       </table>
 
-      <h2>Contact Messages</h2>
+      <h2 className="admin-section-title">Contact Messages</h2>
 
       <table className="admin-table">
         <thead>
