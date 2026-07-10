@@ -55,23 +55,36 @@ function AdminDashboard() {
     }
   };
 
+  const pendingAppointments = appointments.filter(
+    (item) => (item.status || "Pending") === "Pending"
+  ).length;
+
+  const confirmedAppointments = appointments.filter(
+    (item) => item.status === "Confirmed"
+  ).length;
+
+  const completedAppointments = appointments.filter(
+    (item) => item.status === "Completed"
+  ).length;
+
+  const cancelledAppointments = appointments.filter(
+    (item) => item.status === "Cancelled"
+  ).length;
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/admin-login";
+  };
+
   return (
     <div className="admin-dashboard">
       <div className="admin-header">
-  <h1>Admin Dashboard</h1>
+        <h1>Admin Dashboard</h1>
 
-  <button
-    className="logout-btn"
-    onClick={() => {
-      localStorage.removeItem("token");
-      window.location.href = "/admin-login";
-    }}
-  >
-    Logout
-  </button>
-</div>
-
-      
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
 
       <div className="dashboard-cards">
         <div className="card">
@@ -80,7 +93,27 @@ function AdminDashboard() {
         </div>
 
         <div className="card">
-          <h2>Total Contact Messages</h2>
+          <h2>Pending</h2>
+          <h3>{pendingAppointments}</h3>
+        </div>
+
+        <div className="card">
+          <h2>Confirmed</h2>
+          <h3>{confirmedAppointments}</h3>
+        </div>
+
+        <div className="card">
+          <h2>Completed</h2>
+          <h3>{completedAppointments}</h3>
+        </div>
+
+        <div className="card">
+          <h2>Cancelled</h2>
+          <h3>{cancelledAppointments}</h3>
+        </div>
+
+        <div className="card">
+          <h2>Contact Messages</h2>
           <h3>{contacts.length}</h3>
         </div>
       </div>
@@ -105,7 +138,9 @@ function AdminDashboard() {
               <td>{item.fullName}</td>
               <td>{item.doctor}</td>
               <td>{item.service}</td>
-              <td>{new Date(item.appointmentDate).toLocaleDateString()}</td>
+              <td>
+                {new Date(item.appointmentDate).toLocaleDateString()}
+              </td>
 
               <td>
                 <select
