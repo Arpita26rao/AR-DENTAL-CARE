@@ -54,7 +54,7 @@ function Contact() {
           <p>
             <strong>📍 Address:</strong>
             <br />
-            1 Meera Nagar,
+            1 Meerdha nagar,
             <br />
             Canal Road, Baran Road,
             <br />
