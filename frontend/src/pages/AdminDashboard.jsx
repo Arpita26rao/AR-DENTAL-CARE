@@ -260,6 +260,12 @@ function AdminDashboard() {
               <td>{contact.message}</td>
             </tr>
           ))}
+
+          {contacts.length === 0 && (
+            <tr>
+              <td colSpan="4">No contact messages found.</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
