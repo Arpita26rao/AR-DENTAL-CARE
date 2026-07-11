@@ -25,7 +25,8 @@ function AdminDashboard() {
 
   const fetchAppointments = async () => {
     try {
-      const res = await API.get("/appointments");
+      
+      const res = await API.get(`/appointments?t=${Date.now()}`);
 
       setAppointments(
         Array.isArray(res.data.data) ? res.data.data : []
