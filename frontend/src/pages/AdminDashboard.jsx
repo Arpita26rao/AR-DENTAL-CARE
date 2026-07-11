@@ -6,10 +6,21 @@ function AdminDashboard() {
   const [contacts, setContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchAppointments();
-    fetchContacts();
+    const loadDashboardData = async () => {
+      setLoading(true);
+
+      await Promise.all([
+        fetchAppointments(),
+        fetchContacts(),
+      ]);
+
+      setLoading(false);
+    };
+
+    loadDashboardData();
   }, []);
 
   const fetchAppointments = async () => {
@@ -82,7 +93,7 @@ function AdminDashboard() {
   ).length;
 
   const filteredAppointments = appointments.filter((item) => {
-    const value = searchTerm.toLowerCase();
+    const value = searchTerm.trim().toLowerCase();
 
     const matchesSearch =
       item.fullName?.toLowerCase().includes(value) ||
@@ -100,6 +111,14 @@ function AdminDashboard() {
     localStorage.removeItem("token");
     window.location.href = "/admin-login";
   };
+
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <h2>Loading dashboard...</h2>
+      </div>
+    );
+  }
 
   return (
     <div className="admin-dashboard">
