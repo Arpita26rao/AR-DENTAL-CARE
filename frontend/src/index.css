@@ -143,7 +143,32 @@ button:hover { transform: translateY(-4px); }
 .appointment-form textarea { height: 130px; resize: none; }
 .appointment-form button { width: 100%; padding: 15px; border: none; border-radius: 12px; background: #14b8a6; color: white; font-size: 16px; font-weight: 700; cursor: pointer; }
 .appointment-form button:hover { background: #0f766e; box-shadow: 0 12px 25px rgba(20,184,166,.35); }
+.booking-success,
+.booking-error {
+  padding: 13px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
 
+.booking-success {
+  color: #166534;
+  background: #dcfce7;
+  border: 1px solid #86efac;
+}
+
+.booking-error {
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+}
+
+.appointment-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
 /* FOOTER */
 .footer { background: linear-gradient(135deg, #052b27, #0a3d36); color: white; padding: 70px 8% 20px; }
 .footer-container { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; max-width: 1200px; margin: auto; }
@@ -349,14 +374,6 @@ button:hover { transform: translateY(-4px); }
   .admin-search {
     width: 100%;
   }
-}
-.loading-screen {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0f766e;
-  font-size: 24px;
 }
 /* ANIMATIONS */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
