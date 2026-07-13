@@ -6,13 +6,18 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero-left">
-        <span className="hero-tag">Trusted Dental Care</span>
+        <span className="hero-tag">
+          AR Memorial Dental Care Centre
+        </span>
 
-        <h1>Bright Smiles Start With Expert Dental Care</h1>
+        <h1>
+          Healthy Smiles Begin With Trusted Dental Care
+        </h1>
 
         <p>
-          Modern dental treatment with experienced specialists,
-          advanced technology, and patient-friendly care.
+          Experience quality dental treatment with modern technology,
+          personalized care, and an experienced dental specialist.
+          Your smile and comfort are our highest priorities.
         </p>
 
         <div className="hero-buttons">
@@ -36,12 +41,12 @@ function Hero() {
 
           <div>
             <h3>10+</h3>
-            <span>Years Experience</span>
+            <span>Years of Experience</span>
           </div>
 
           <div>
-            <h3>4.9★</h3>
-            <span>Patient Rating</span>
+            <h3>Mon–Sat</h3>
+            <span>10 AM – 2 PM & 5 PM – 9 PM</span>
           </div>
         </div>
       </div>
@@ -49,7 +54,7 @@ function Hero() {
       <div className="hero-right">
         <img
           src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900"
-          alt="Dental Clinic"
+          alt="AR Memorial Dental Care Centre"
         />
       </div>
     </section>
