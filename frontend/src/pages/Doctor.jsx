@@ -4,42 +4,20 @@ function Doctor() {
   return (
     <section className="doctor-page">
       <div className="doctor-hero">
-      
-        <h2>Meet Our Expert Dentists</h2>
+        <h2>Meet Our Dental Specialist</h2>
 
-       <p className="doctor-subtitle">
-       Experienced dental professionals providing advanced,
-    comfortable and patient-focused treatment for every smile.
-     </p>
+        <p className="doctor-subtitle">
+          Dedicated to providing safe, comfortable and patient-focused dental
+          care using modern treatment methods.
+        </p>
       </div>
 
       <div className="doctor-container">
         <DoctorCard
-          name="Dr. Rajesh Sharma"
+          name="Dr. Junaid Khan"
           speciality="Dental Surgeon"
-          experience="8+ Years Experience"
-          qualification="BDS, MDS"
-        />
-
-        <DoctorCard
-          name="Dr. Neha Gupta"
-          speciality="Orthodontist"
-          experience="6+ Years Experience"
-          qualification="BDS, Orthodontics"
-        />
-
-        <DoctorCard
-          name="Dr. Amit Verma"
-          speciality="Implant Specialist"
-          experience="10+ Years Experience"
-          qualification="MDS, Implantology"
-        />
-
-        <DoctorCard
-          name="Dr. Priya Mishra"
-          speciality="Pediatric Dentist"
-          experience="5+ Years Experience"
-          qualification="BDS, Pediatric Care"
+          experience="Experienced Dental Professional"
+          qualification="Qualification to be updated"
         />
       </div>
 
@@ -48,19 +26,25 @@ function Doctor() {
           <h2>5000+</h2>
           <p>Happy Patients</p>
         </div>
+
         <div>
-          <h2>15+</h2>
-          <p>Years Experience</p>
+          <h2>Modern</h2>
+          <p>Dental Equipment</p>
         </div>
+
         <div>
-          <h2>4.9★</h2>
-          <p>Patient Rating</p>
+          <h2>Mon–Sat</h2>
+          <p>Available for Consultation</p>
         </div>
       </div>
 
       <div className="doctor-cta">
         <h2>Need Expert Dental Care?</h2>
-        <p>Book your consultation with our experienced dental specialists.</p>
+
+        <p>
+          Book your consultation at AR Memorial Dental Care Centre.
+        </p>
+
         <a href="/appointment">Book Appointment</a>
       </div>
     </section>
