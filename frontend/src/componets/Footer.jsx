@@ -1,31 +1,31 @@
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+
 function Footer() {
   return (
     <footer className="footer">
-
       <div className="footer-container">
 
         {/* Clinic */}
         <div className="footer-box">
           <h2>🦷 AR Memorial Dental Care Centre</h2>
+
           <p>
-            Providing advanced, affordable and patient-focused dental care
-            with modern technology and experienced specialists.
+            We are committed to providing safe, modern and affordable dental
+            care with advanced technology, experienced professionals and a
+            patient-first approach.
           </p>
+
+          <div className="footer-social">
+            <a href="#" aria-label="Facebook">
+              <FaFacebook />
+            </a>
+
+            <a href="#" aria-label="Instagram">
+              <FaInstagram />
+            </a>
+          </div>
         </div>
-        <div className="footer-social">
-
-  <a href="#">
-    <FaFacebook />
-  </a>
-
-  <a href="#">
-    <FaInstagram />
-  </a>
-
-  
-</div>
 
         {/* Quick Links */}
         <div className="footer-box">
@@ -41,12 +41,23 @@ function Footer() {
 
         {/* Contact */}
         <div className="footer-box">
-          <h3>Contact</h3>
+          <h3>Contact Us</h3>
 
-          <p>📍 Kota, Rajasthan</p>
-          <p>📞 +91 98765 43210</p>
-          <p>✉ info@ardental.com</p>
-          <p>🕒 Mon - Sat | 9:00 AM - 8:00 PM</p>
+          <p>
+            📍 1 Meera Nagar,<br />
+            Canal Road, Baran Road,<br />
+            Kota, Rajasthan
+          </p>
+
+          <p>📞 +91 63765 64645</p>
+
+          <p>✉ armemorialdental@gmail.com</p>
+
+          <p>
+            🕒 Monday – Saturday <br />
+            10:00 AM – 2:00 PM <br />
+            5:00 PM – 9:00 PM
+          </p>
         </div>
 
       </div>
@@ -54,7 +65,6 @@ function Footer() {
       <div className="footer-bottom">
         © 2026 AR Memorial Dental Care Centre. All Rights Reserved.
       </div>
-
     </footer>
   );
 }
