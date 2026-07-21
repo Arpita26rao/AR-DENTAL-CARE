@@ -4,7 +4,7 @@ function Doctor() {
   return (
     <section className="doctor-page">
       <div className="doctor-hero">
-        <h2>Meet Our Dental Specialist</h2>
+        <h2>Meet Our Dental Specialists</h2>
 
         <p className="doctor-subtitle">
           Dedicated to providing safe, comfortable and patient-focused dental
@@ -16,8 +16,15 @@ function Doctor() {
         <DoctorCard
           name="Dr. Junaid Khan"
           speciality="Dental Surgeon"
-          experience="Experienced Dental Professional"
-          qualification="Qualification to be updated"
+          experience="5 years of experience in dental care"
+          qualification="BDS."
+        />
+
+        <DoctorCard
+          name="Dr. Divya Rao"
+          speciality="Dental Surgeon"
+          experience="7 years of experience in dental care"
+          qualification="BDS, MDS."
         />
       </div>
 
