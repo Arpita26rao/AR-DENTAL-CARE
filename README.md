@@ -1,16 +1,170 @@
-# React + Vite
+# 🦷 Dental Studio — Modern Dental Clinic Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive dental clinic website built with React and Vite. The platform provides patients with information about dental services, doctors, appointments, and contact options through a clean and professional user interface.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **Live Website:** ar-dental-care-self.vercel.app
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+### 🏠 Patient-Facing Website
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Modern and responsive landing page
+* Professional dental clinic branding
+* Services showcase
+* Dentist/doctor information
+* Patient testimonials
+* Contact information and clinic details
+
+### 📅 Appointment Booking
+
+* Online appointment booking form
+* Patient information collection
+* Appointment date and time selection
+* Backend API integration
+
+### 📩 Contact System
+
+* Contact form for patient inquiries
+* Message submission through backend API
+* Structured patient communication flow
+
+### 🔐 Admin Dashboard
+
+* Secure admin login
+* View submitted appointments
+* View contact messages
+* Appointment status management
+* Appointment statistics
+* Delete appointment records
+* Protected admin routes
+
+### 📱 Responsive Design
+
+* Desktop optimized
+* Tablet responsive
+* Mobile-friendly interface
+* Responsive navigation
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* Vite
+* JavaScript
+* CSS
+* React Router
+
+### Backend Integration
+
+* Node.js
+* Express.js
+* REST APIs
+* MongoDB
+
+### Deployment
+
+* Vercel
+
+---
+
+## 📂 Project Structure
+
+```text
+frontend/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone 
+```
+
+### 2. Navigate to the frontend directory
+
+```bash
+cd frontend
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+The application will run locally on:
+
+```text
+http://localhost:5173
+```
+
+### 5. Create a production build
+
+```bash
+npm run build
+```
+
+---
+
+## 🎯 Main Pages
+
+* Home
+* About
+* Services
+* Doctor
+* Appointment
+* Contact
+* Admin Login
+* Admin Dashboard
+
+---
+
+## 💡 Key Highlights
+
+* Component-based React architecture
+* Client-side routing with protected admin routes
+* REST API integration
+* Responsive UI design
+* Appointment management system
+* Contact form integration
+* Production-ready Vite build
+* Deployed on Vercel
+
+---
+
+## 👩‍💻 Developer
+
+**Arpita Rao**
+
+Full Stack Developer focused on building modern web applications using React, Node.js, Express.js, MongoDB, and AI-powered technologies.
+
+---
+
+⭐ If you found this project useful, consider giving it a star!
