@@ -5,14 +5,14 @@ function DoctorCard({
   speciality,
   experience,
   qualification,
+  image,
 }) {
   const navigate = useNavigate();
 
   return (
     <div className="doctor-card">
-
       <div className="doctor-avatar">
-        👨‍⚕️
+        <img src={image} alt={name} />
       </div>
 
       <span className="availability">
@@ -40,7 +40,6 @@ function DoctorCard({
       >
         Book Appointment →
       </button>
-
     </div>
   );
 }
