@@ -87,47 +87,189 @@ button:hover { transform: translateY(-4px); }
 .about-points div { background: #ecfdf5; padding: 18px; border-radius: 14px; border-left: 4px solid #14b8a6; font-weight: 600; }
 
 /* DOCTOR */
+
 .doctor-page h2 {
   font-size: 42px;
   color: #374151;
   margin-bottom: 10px;
 }
+
+.doctor-subtitle {
+  max-width: 700px;
+  margin: 15px auto 55px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.doctor-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.doctor-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 30px 25px;
+  text-align: center;
+  border-top: 4px solid #14b8a6;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.doctor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(20, 184, 166, 0.18);
+}
+
+.doctor-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #14b8a6, #34d399);
+  transition: 0.4s;
+}
+
+.doctor-card:hover::before {
+  left: 0;
+}
+
+.doctor-avatar {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #dcfce7, #ccfbf1);
+  box-shadow: 0 8px 20px rgba(20, 184, 166, 0.18);
+}
+
+.doctor-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.availability {
+  display: inline-block;
+  padding: 6px 16px;
+  margin-bottom: 12px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 30px;
+  letter-spacing: 0.3px;
+}
+
+.doctor-card h3 {
+  color: #1f2937;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.speciality {
+  color: #14b8a6;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.doctor-details {
+  margin: 18px 0;
+}
+
+.doctor-details p {
+  background: #f8fafc;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: #475569;
+  font-size: 14px;
+  border-left: 4px solid #14b8a6;
+}
+
+.doctor-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+}
+
+.doctor-card li {
+  margin: 6px 0;
+  color: #475569;
+}
+
+.doctor-card button,
+.doctor-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #14b8a6, #0f766e);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.doctor-card button:hover,
+.doctor-btn:hover {
+  box-shadow: 0 12px 25px rgba(20, 184, 166, 0.35);
+}
+
+.doctor-stats {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 45px 0 25px;
+}
+
+.doctor-stats div {
+  background: white;
+  padding: 18px 30px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
 .doctor-stats h2 {
   color: #14b8a6;
   font-size: 28px;
   margin-bottom: 6px;
 }
-.doctor-subtitle { max-width: 700px; margin: 15px auto 55px; font-size: 18px; line-height: 1.7; color: #64748b; }
-.doctor-container { 
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+
+.doctor-cta {
+  max-width: 600px;
+  margin: 30px auto 0;
+  background: #052b27;
+  color: white;
+  padding: 35px;
+  border-radius: 24px;
 }
-.doctor-card { background: #fff; border-radius: 22px; padding: 30px 25px; text-align: center; border-top: 4px solid #14b8a6; box-shadow: 0 12px 30px rgba(0,0,0,.08); transition: all .35s ease; position: relative; overflow: hidden; }
-.doctor-card:hover { transform: translateY(-10px); box-shadow: 0 22px 45px rgba(20,184,166,.18); }
-.doctor-card::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 4px; background: linear-gradient(90deg, #14b8a6, #34d399); transition: .4s; }
-.doctor-card:hover::before { left: 0; }
-.doctor-avatar { width: 105px; height: 105px; border-radius: 50%; background: linear-gradient(135deg, #dcfce7, #ccfbf1); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 48px; box-shadow: inset 0 0 18px rgba(20,184,166,.18); }
-.availability { display: inline-block; padding: 6px 16px; margin-bottom: 12px; background: #dcfce7; color: #15803d; font-size: 13px; font-weight: 600; border-radius: 30px; letter-spacing: .3px; }
-.speciality { color: #14b8a6; font-weight: 600; margin-bottom: 10px; }
-.doctor-details { margin: 18px 0; }
-.doctor-details p { background: #f8fafc; padding: 10px 14px; border-radius: 10px; margin-bottom: 10px; color: #475569; font-size: 14px; border-left: 4px solid #14b8a6; }
-.doctor-card ul { list-style: none; padding: 0; margin: 18px 0; }
-.doctor-card li { margin: 6px 0; }
-.doctor-card button, .doctor-btn { width: 100%; padding: 14px; margin-top: 15px; border: none; border-radius: 12px; background: linear-gradient(135deg, #14b8a6, #0f766e); color: white; font-size: 15px; font-weight: 700; cursor: pointer; }
-.doctor-card button:hover, .doctor-btn:hover { box-shadow: 0 12px 25px rgba(20,184,166,.35); }
-.doctor-stats { display: flex; justify-content: center; gap: 25px; margin: 45px 0 25px; }
-.doctor-stats div { background: white; padding: 18px 30px; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,.08); }
-.doctor-stats h3 { color: #14b8a6; font-size: 28px; }
-.doctor-cta { max-width: 600px; margin: 30px auto 0; background: #052b27; color: white; padding: 35px; border-radius: 24px; }
-.doctor-cta h2 { color: white; }
-.doctor-cta a { display: inline-block; margin-top: 15px; background: #14b8a6; color: white; padding: 12px 26px; border-radius: 10px; text-decoration: none; }
-.doctor-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+
+.doctor-cta h2 {
+  color: white;
 }
+
+.doctor-cta a {
+  display: inline-block;
+  margin-top: 15px;
+  background: #14b8a6;
+  color: white;
+  padding: 12px 26px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
 /* CONTACT */
 .contact-wrapper { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: start; }
 .contact-card, .contact-form { background: white; padding: 35px; border-radius: 22px; box-shadow: 0 15px 35px rgba(0,0,0,.08); border-top: 4px solid #14b8a6; transition: all .35s ease; }
