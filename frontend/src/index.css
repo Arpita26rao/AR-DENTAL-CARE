@@ -122,7 +122,12 @@ button:hover { transform: translateY(-4px); }
 .doctor-cta { max-width: 600px; margin: 30px auto 0; background: #052b27; color: white; padding: 35px; border-radius: 24px; }
 .doctor-cta h2 { color: white; }
 .doctor-cta a { display: inline-block; margin-top: 15px; background: #14b8a6; color: white; padding: 12px 26px; border-radius: 10px; text-decoration: none; }
-
+.doctor-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 /* CONTACT */
 .contact-wrapper { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: start; }
 .contact-card, .contact-form { background: white; padding: 35px; border-radius: 22px; box-shadow: 0 15px 35px rgba(0,0,0,.08); border-top: 4px solid #14b8a6; transition: all .35s ease; }

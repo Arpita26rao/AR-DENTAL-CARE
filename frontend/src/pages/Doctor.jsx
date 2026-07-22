@@ -18,6 +18,7 @@ function Doctor() {
           speciality="Dental Surgeon"
           experience="5 years of experience in dental care"
           qualification="BDS."
+            image="/images/Doctor 1.jpeg"
         />
 
         <DoctorCard
@@ -25,6 +26,7 @@ function Doctor() {
           speciality="Dental Surgeon"
           experience="7 years of experience in dental care"
           qualification="BDS, MDS."
+           image="/images/Doctor 2.jpeg"
         />
       </div>
 
