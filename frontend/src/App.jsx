@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 
 import Navbar from "./componets/Navbar";
@@ -23,6 +24,7 @@ function Layout() {
 
   const hideLayout =
     location.pathname === "/admin-dashboard" ||
+    location.pathname === "/dashboard" ||
     location.pathname === "/admin-login";
 
   return (
@@ -30,15 +32,26 @@ function Layout() {
       {!hideLayout && <Navbar />}
 
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<Home />} />
+
         <Route path="/about" element={<About />} />
+
         <Route path="/services" element={<Services />} />
+
         <Route path="/contact" element={<Contact />} />
+
         <Route path="/appointment" element={<Appointment />} />
+
         <Route path="/doctor" element={<Doctor />} />
 
-        <Route path="/admin-login" element={<AdminLogin />} />
+        {/* Admin Login */}
+        <Route
+          path="/admin-login"
+          element={<AdminLogin />}
+        />
 
+        {/* Admin Dashboard */}
         <Route
           path="/admin-dashboard"
           element={
@@ -46,6 +59,22 @@ function Layout() {
               <AdminDashboard />
             </ProtectedRoute>
           }
+        />
+
+        {/* Dashboard alias */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Unknown route */}
+        <Route
+          path="*"
+          element={<Navigate to="/" replace />}
         />
       </Routes>
 
