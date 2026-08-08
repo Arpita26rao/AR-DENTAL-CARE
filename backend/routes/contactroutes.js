@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const Contact = require("../models/contact");
+const authMiddleware = require("../middleware/authMiddleware");
 
+// Send contact message - PUBLIC
 router.post("/", async (req, res) => {
   try {
     const contact = new Contact(req.body);
@@ -21,7 +23,9 @@ router.post("/", async (req, res) => {
     });
   }
 });
-router.get("/", async (req, res) => {
+
+// Get all contact messages - ADMIN ONLY
+router.get("/", authMiddleware, async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ createdAt: -1 });
 
@@ -37,4 +41,5 @@ router.get("/", async (req, res) => {
     });
   }
 });
+
 module.exports = router;

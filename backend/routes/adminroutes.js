@@ -5,10 +5,24 @@ const Admin = require("../models/Admin");
 
 const router = express.Router();
 
-// Create admin account - use once
+// Create admin account - protected by registration key
 router.post("/register", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, registerKey } = req.body;
+
+    if (!registerKey || registerKey !== process.env.ADMIN_REGISTER_KEY) {
+      return res.status(403).json({
+        success: false,
+        message: "Admin registration is not allowed.",
+      });
+    }
+
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and password are required.",
+      });
+    }
 
     const existingAdmin = await Admin.findOne({ email });
 

@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Appointment = require("../models/appointment");
+const authMiddleware = require("../middleware/authMiddleware");
 
-// Create appointment
+// Create appointment - PUBLIC
 router.post("/", async (req, res) => {
   try {
     const appointment = new Appointment(req.body);
@@ -21,8 +22,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Get all appointments
-router.get("/", async (req, res) => {
+// Get all appointments - ADMIN ONLY
+router.get("/", authMiddleware, async (req, res) => {
   try {
     const appointments = await Appointment.find().sort({ createdAt: -1 });
 
@@ -39,8 +40,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Delete appointment
-router.delete("/:id", async (req, res) => {
+// Delete appointment - ADMIN ONLY
+router.delete("/:id", authMiddleware, async (req, res) => {
   try {
     const appointment = await Appointment.findByIdAndDelete(req.params.id);
 
@@ -63,8 +64,8 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// Update appointment status
-router.put("/:id", async (req, res) => {
+// Update appointment status - ADMIN ONLY
+router.put("/:id", authMiddleware, async (req, res) => {
   try {
     const appointment = await Appointment.findByIdAndUpdate(
       req.params.id,
