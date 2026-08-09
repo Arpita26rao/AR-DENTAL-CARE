@@ -1,20 +1,35 @@
 const express = require("express");
 const router = express.Router();
+
 const Appointment = require("../models/appointment");
 const authMiddleware = require("../middleware/authMiddleware");
+const { sendAppointmentEmail } = require("../emailService");
 
 // Create appointment - PUBLIC
 router.post("/", async (req, res) => {
   try {
     const appointment = new Appointment(req.body);
+
     await appointment.save();
+
+    // Send confirmation email to patient
+    const emailResult = await sendAppointmentEmail(appointment);
+
+    if (!emailResult.success) {
+      console.error(
+        "Appointment saved, but confirmation email failed."
+      );
+    }
 
     res.status(201).json({
       success: true,
       message: "Appointment booked successfully",
       data: appointment,
+      emailSent: emailResult.success,
     });
   } catch (error) {
+    console.error("Appointment booking error:", error);
+
     res.status(500).json({
       success: false,
       message: error.message,
@@ -25,7 +40,9 @@ router.post("/", async (req, res) => {
 // Get all appointments - ADMIN ONLY
 router.get("/", authMiddleware, async (req, res) => {
   try {
-    const appointments = await Appointment.find().sort({ createdAt: -1 });
+    const appointments = await Appointment.find().sort({
+      createdAt: -1,
+    });
 
     res.status(200).json({
       success: true,
@@ -43,7 +60,9 @@ router.get("/", authMiddleware, async (req, res) => {
 // Delete appointment - ADMIN ONLY
 router.delete("/:id", authMiddleware, async (req, res) => {
   try {
-    const appointment = await Appointment.findByIdAndDelete(req.params.id);
+    const appointment = await Appointment.findByIdAndDelete(
+      req.params.id
+    );
 
     if (!appointment) {
       return res.status(404).json({
