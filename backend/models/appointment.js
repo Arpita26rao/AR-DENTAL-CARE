@@ -6,35 +6,46 @@ const appointmentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     email: {
       type: String,
       required: true,
     },
+
     phone: {
       type: String,
       required: true,
     },
+
     service: {
       type: String,
       required: true,
     },
+
     doctor: {
       type: String,
       required: true,
     },
+
     appointmentDate: {
       type: Date,
       required: true,
     },
+
+    appointmentTime: {
+      type: String,
+      required: true,
+    },
+
     message: {
       type: String,
     },
 
     status: {
-  type: String,
-  enum: ["Pending", "Confirmed", "Completed", "Cancelled"],
-  default: "Pending",
-},
+      type: String,
+      enum: ["Pending", "Confirmed", "Completed", "Cancelled"],
+      default: "Pending",
+    },
   },
   { timestamps: true }
 );

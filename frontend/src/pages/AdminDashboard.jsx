@@ -82,6 +82,7 @@ function AdminDashboard() {
       await fetchAppointments();
     } catch (error) {
       console.error("Delete appointment error:", error);
+
       alert(
         error.response?.data?.message ||
           "Failed to delete appointment."
@@ -266,6 +267,7 @@ function AdminDashboard() {
               <th>Doctor</th>
               <th>Service</th>
               <th>Date</th>
+              <th>Time</th>
               <th>Status</th>
               <th>Actions</th>
             </tr>
@@ -288,6 +290,11 @@ function AdminDashboard() {
                         item.appointmentDate
                       ).toLocaleDateString("en-IN")
                     : "No Date"}
+                </td>
+
+                {/* Appointment Time */}
+                <td>
+                  {item.appointmentTime || "No Time"}
                 </td>
 
                 <td>
@@ -335,7 +342,7 @@ function AdminDashboard() {
 
             {filteredAppointments.length === 0 && (
               <tr>
-                <td colSpan="6">
+                <td colSpan="7">
                   No appointments found.
                 </td>
               </tr>

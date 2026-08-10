@@ -8,7 +8,51 @@ const { sendAppointmentEmail } = require("../emailService");
 // Create appointment - PUBLIC
 router.post("/", async (req, res) => {
   try {
-    const appointment = new Appointment(req.body);
+    const {
+      fullName,
+      email,
+      phone,
+      service,
+      doctor,
+      appointmentDate,
+      appointmentTime,
+      message,
+    } = req.body;
+
+    // Check required appointment time
+    if (!appointmentTime) {
+      return res.status(400).json({
+        success: false,
+        message: "Please select an appointment time.",
+      });
+    }
+
+    // Check if the same doctor already has this date + time booked
+    const existingAppointment = await Appointment.findOne({
+      doctor,
+      appointmentDate: new Date(appointmentDate),
+      appointmentTime,
+      status: { $ne: "Cancelled" },
+    });
+
+    if (existingAppointment) {
+      return res.status(409).json({
+        success: false,
+        message:
+          "This time slot is already booked. Please select another time.",
+      });
+    }
+
+    const appointment = new Appointment({
+      fullName,
+      email,
+      phone,
+      service,
+      doctor,
+      appointmentDate,
+      appointmentTime,
+      message,
+    });
 
     await appointment.save();
 

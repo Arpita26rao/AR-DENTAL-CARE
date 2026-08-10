@@ -7,6 +7,7 @@ function Appointment() {
     email: "",
     phone: "",
     appointmentDate: "",
+    appointmentTime: "",
     doctor: "",
     service: "",
     message: "",
@@ -18,6 +19,25 @@ function Appointment() {
   });
 
   const [submitting, setSubmitting] = useState(false);
+
+  const timeSlots = [
+    "10:00 AM",
+    "10:30 AM",
+    "11:00 AM",
+    "11:30 AM",
+    "12:00 PM",
+    "12:30 PM",
+    "1:00 PM",
+    "1:30 PM",
+    "5:00 PM",
+    "5:30 PM",
+    "6:00 PM",
+    "6:30 PM",
+    "7:00 PM",
+    "7:30 PM",
+    "8:00 PM",
+    "8:30 PM",
+  ];
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -37,6 +57,7 @@ function Appointment() {
     event.preventDefault();
 
     setSubmitting(true);
+
     setBookingStatus({
       type: "",
       message: "",
@@ -57,6 +78,7 @@ function Appointment() {
         email: "",
         phone: "",
         appointmentDate: "",
+        appointmentTime: "",
         doctor: "",
         service: "",
         message: "",
@@ -80,9 +102,9 @@ function Appointment() {
   };
 
   return (
-    <section className="appointment-page">
-      <div className="section-title">
-        <span>Appointment</span>
+    <section className="appointment-section">
+      <div className="appointment-heading">
+        <span className="section-tag">Appointment</span>
 
         <h2>Book Your Dental Appointment</h2>
 
@@ -184,15 +206,35 @@ function Appointment() {
           />
 
           <select
+            name="appointmentTime"
+            value={formData.appointmentTime}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Appointment Time</option>
+
+            {timeSlots.map((time) => (
+              <option key={time} value={time}>
+                {time}
+              </option>
+            ))}
+          </select>
+
+          <select
             name="doctor"
             value={formData.doctor}
             onChange={handleChange}
             required
           >
             <option value="">Select Doctor</option>
+
             <option value="Dr. Junaid Khan">
               Dr. Junaid Khan
             </option>
+           <option value="Dr. Divya">
+    Dr. Divya Rao
+ </option>
+
           </select>
 
           <select
@@ -202,21 +244,27 @@ function Appointment() {
             required
           >
             <option value="">Select Service</option>
+
             <option value="Teeth Cleaning">
               Teeth Cleaning
             </option>
+
             <option value="Root Canal">
               Root Canal
             </option>
+
             <option value="Dental Implant">
               Dental Implant
             </option>
+
             <option value="Braces and Aligners">
               Braces and Aligners
             </option>
+
             <option value="Teeth Whitening">
               Teeth Whitening
             </option>
+
             <option value="General Dentistry">
               General Dentistry
             </option>
@@ -241,7 +289,10 @@ function Appointment() {
             </p>
           )}
 
-          <button type="submit" disabled={submitting}>
+          <button
+            type="submit"
+            disabled={submitting}
+          >
             {submitting
               ? "Booking Appointment..."
               : "Book Appointment"}

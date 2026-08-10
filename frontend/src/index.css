@@ -638,6 +638,90 @@ button:hover {
   cursor: pointer;
 }
 
+
+/* ================= APPOINTMENT PAGE FIX ================= */
+
+/* Supports the current Appointment.jsx class names */
+.appointment-section {
+  min-height: 100vh;
+  padding: 90px 8%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(20, 184, 166, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(16, 185, 129, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #f4fffd, #eefcf9, #f8fffd);
+}
+
+.appointment-section::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: rgba(20, 184, 166, 0.12);
+  border-radius: 50%;
+  filter: blur(70px);
+  top: 80px;
+  left: -90px;
+  pointer-events: none;
+}
+
+.appointment-heading {
+  text-align: center;
+  margin-bottom: 55px;
+  position: relative;
+  z-index: 1;
+}
+
+.appointment-heading span {
+  display: inline-block;
+  color: #14b8a6;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.appointment-heading h2 {
+  font-size: 46px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 18px;
+}
+
+.appointment-heading h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #14b8a6, #34d399);
+  margin: 16px auto 0;
+  border-radius: 20px;
+}
+
+.appointment-heading p {
+  max-width: 650px;
+  margin: auto;
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.8;
+}
+
+.appointment-section .appointment-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
 /* ================= APPOINTMENT ================= */
 
 .appointment-wrapper {
@@ -1100,6 +1184,17 @@ button:hover {
   }
 }
 
+
+@media (max-width: 768px) {
+  .appointment-heading h2 {
+    font-size: 32px;
+  }
+
+  .appointment-heading p {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 480px) {
   .about-page,
   .services-page,
@@ -1140,5 +1235,50 @@ button:hover {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+  }
+}
+/* ================= 3D FAMILY DENTAL BACKGROUND ================= */
+
+.appointment-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 900px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(240, 253, 250, 0.96) 0%,
+      rgba(240, 253, 250, 0.78) 35%,
+      rgba(240, 253, 250, 0.35) 65%,
+      rgba(240, 253, 250, 0.82) 100%
+    ),
+    url("/images/dental-family-3d.png") center center / cover no-repeat;
+}
+
+/* Keep content above background */
+.appointment-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Soft glass effect for appointment cards */
+.appointment-info,
+.appointment-form {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .appointment-section {
+    background:
+      linear-gradient(
+        rgba(240, 253, 250, 0.88),
+        rgba(240, 253, 250, 0.94)
+      ),
+      url("/images/dental-family-3d.png") center / cover no-repeat;
   }
 }
